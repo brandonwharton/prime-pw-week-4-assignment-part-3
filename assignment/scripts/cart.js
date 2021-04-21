@@ -35,14 +35,14 @@ console.log( 'The basket now contains:', basket);
 
 const listItems = () => {
   for (i=0; i<basket.length;i++) { // Iterating through each element
-    console.log(basket[i]);
+    console.log('Basket item:', basket[i]);
   } // end loop
   return true;
 } // end listItems
 console.log('List individually above, expecting true:', listItems());
 
 function listItems2() {
-  basket.forEach(items => console.log(items)); // Using a built-in instead
+  basket.forEach(items => console.log('Basket item type2:', items)); // Using a built-in instead
   return false;
 } // end listItems2
 console.log('Testing the secondary option for listItems, expect false', listItems2());
@@ -88,14 +88,14 @@ const removeItem = (item) => {
   } // end else
 } // end removeItem
 
-console.log('Filling our basket again with unique items, true:', addItem('apple'));
-console.log('Filling our basket again with unique items, true:', addItem('pear'));
-console.log('Filling our basket again with unique items, true:', addItem('lemon'));
-console.log('Filling our basket again with unique items, true:', addItem('lime'));
+console.log('Filling our basket again with apple, true:', addItem('apple'));
+console.log('Filling our basket again with pear, true:', addItem('pear'));
+console.log('Filling our basket again with lemon, true:', addItem('lemon'));
+console.log('Filling our basket again with lime, true:', addItem('lime'));
 console.log('Oops, basket if full, no room for dragonfruit, false:', addItem('dragonfruit'));
 console.log('Basket now contains, returning false:', listItems2());
 
 console.log('Removing pear, returning pear:', removeItem('pear'));
-console.log('Removing apple, returning papaya:', removeItem('papaya'));
+console.log('Removing papaya, returning papaya:', removeItem('papaya'));
 console.log('Checking our basket again, returning true:', listItems());
 console.log('Trying to remove nonexistent dragonfruit, returning null:', removeItem('dragonfruit'));
