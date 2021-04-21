@@ -77,3 +77,25 @@ console.log('Checking our updated addItem, expecting false because of the grapes
 console.log('Clearing the basket again, no more grapes:', empty());
 console.log('Seeing if our addItem works now that grapes are gone, expecting true:', addItem('papaya'));
 console.log(`Examing our smaller basket: ${basket}`);
+
+const removeItem = (item) => {
+  let x = basket.indexOf(item);
+  if (x >=0) { // If item exists in array, it's indexOf will come back 0 or positive
+    return basket.splice(x,1);
+  } // end if
+  else { // If item doesn't exist, it's indexOf comes back -1.
+    return null;
+  } // end else
+} // end removeItem
+
+console.log('Filling our basket again with unique items, true:', addItem('apple'));
+console.log('Filling our basket again with unique items, true:', addItem('pear'));
+console.log('Filling our basket again with unique items, true:', addItem('lemon'));
+console.log('Filling our basket again with unique items, true:', addItem('lime'));
+console.log('Oops, basket if full, no room for dragonfruit, false:', addItem('dragonfruit'));
+console.log('Basket now contains, returning false:', listItems2());
+
+console.log('Removing pear, returning pear:', removeItem('pear'));
+console.log('Removing apple, returning papaya:', removeItem('papaya'));
+console.log('Checking our basket again, returning true:', listItems());
+console.log('Trying to remove nonexistent dragonfruit, returning null:', removeItem('dragonfruit'));
