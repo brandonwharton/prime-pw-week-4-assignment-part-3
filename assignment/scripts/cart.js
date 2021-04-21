@@ -39,3 +39,29 @@ const empty = () => {
 
 console.log(`Getting rid of our delicious fruits, returning 'sad':`, empty());
 console.log(`Our basket is empty again: ${basket}`);
+// Stretch goals!
+const maxItems = 5;
+
+function full() {
+  if (basket.length < maxItems) {
+    return false;
+  } // returning false if basket isn't full yet
+  else {
+    return true;
+  } // returning true if our basket is full or overflowing
+} // end full
+
+console.log('Testing our full function, expecting false', full());
+
+function allTheGrapes() { // writing a function to overfill our basket
+  while (basket.length <= maxItems) { // While loop should stop once basket is one above maxItems
+    basket.push(' grape' );
+  } // end loop
+  if (basket.length > maxItems) {
+    return 'too many grapes'; // returning if our basket is overfull
+  } // end conditional
+} // end allTheGrapes
+
+console.log(`Filling up the basket, expecting 'too many grapes':`, allTheGrapes());
+console.log('Examining our beautiful grapes, expecting true:', listItems());
+console.log('Checking if our basket is full now, expecting true:', full());
