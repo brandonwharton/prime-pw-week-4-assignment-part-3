@@ -34,35 +34,43 @@ console.log('Adding kiwi to the basket, true should return', addItem( 'kiwi' ));
 console.log( 'The basket now contains:', basket);
 
 const listItems = () => {
-  for (i=0; i<basket.length;i++) { // Iterating through each element
-    console.log('Basket item:', basket[i]);
+  for (let i=0; i<basket.length;i++) { // Iterating through each element
+    console.log('Basket list:', basket[i]);
   } // end loop
   return true;
 } // end listItems
 console.log('List individually above, expecting true:', listItems());
 
+// Using a built-in to make listItems
 function listItems2() {
-  basket.forEach(items => console.log('Basket item type2:', items)); // Using a built-in instead
+  basket.forEach(items => console.log('Basket list function 2:', items));
   return false;
 } // end listItems2
 console.log('Testing the secondary option for listItems, expect false', listItems2());
 
+// Continuing to batter for of loops as an option for this into my brain
+const listItems3 = () => {
+  for (let fruit of basket) {
+    console.log('Basket list function 3', fruit);
+  } // end loop
+} // end listItems3
+
 console.log('Adding banana to the basket, returning true', addItem( 'banana'));
-console.log(' Testing both list functions, banana should be there, expecting true then false', listItems(), listItems2() );
+console.log(' Testing three list functions, banana should be there, expecting true then false then undefined',
+ listItems(), listItems2(), listItems3() );
 
 const empty = () => {
   basket = [];
   return 'sad';
 } // end empty
 
-console.log(`Getting rid of our delicious fruits, returning 'sad':`, empty());
+console.log(`Getting rid of our delicious fruits, returning 'sad':`, empty(basket));
 console.log(`Our basket is empty again: ${basket}`);
 // Stretch goals!
 
-
 function allTheGrapes() { // writing a function to overfill our basket
   while (basket.length <= maxItems) { // While loop should stop once basket is one above maxItems
-    basket.push(' grape' );
+    basket.push('grape' );
   } // end loop
   if (basket.length > maxItems) {
     return 'too many grapes'; // returning if our basket is overfull
